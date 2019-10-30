@@ -1,10 +1,18 @@
-class Customer
-  attr_accessor :id
-  attr_reader :name, :address
+require_relative 'record'
+
+class Customer < Record
+  attr_reader :address
 
   def initialize(options)
-    @id = options[:id]
-    @name = options[:name]
+    super(options)
     @address = options[:address]
+  end
+
+  def self.csv_headers
+    ['id', 'name', 'address']
+  end
+
+  def csv_data
+    [@id, @name, @address]
   end
 end

@@ -8,8 +8,7 @@ class MealsController
 
   def list
     # get all meals from repo
-    all_meals = @repo.all
-    # display that to view
+    all_meals = @repo.all # display that to view
     @view.display_all(all_meals)
   end
 

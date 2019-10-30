@@ -1,10 +1,18 @@
-class Meal
-  attr_accessor :id
-  attr_reader :name, :price
+require_relative 'record'
+
+class Meal < Record
+  attr_reader :price
 
   def initialize(options)
-    @id = options[:id]
-    @name = options[:name]
+    super(options)
     @price = options[:price]
+  end
+
+  def self.csv_headers
+    ['id', 'name', 'price']
+  end
+
+  def csv_data
+    [@id, @name, @price]
   end
 end
